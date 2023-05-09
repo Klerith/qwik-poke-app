@@ -4,10 +4,16 @@ interface Props {
     id   : number;
     size?: number;
     backImage: boolean;
+    isVisible?: boolean;
 }
 
 
-export const PokemonImage = component$(({ id, size = 200, backImage = false }: Props ) => {
+export const PokemonImage = component$(({ 
+    id, 
+    size = 200, 
+    backImage = false,
+    isVisible = true,
+}: Props ) => {
 
     const imageLoaded = useSignal(false);
     
@@ -40,10 +46,10 @@ export const PokemonImage = component$(({ id, size = 200, backImage = false }: P
                         imageLoaded.value = true;
                     // }, 2000);
                 }}
-                class={{
+                class={[{
                     'hidden': !imageLoaded.value,
-                    'brightness-0': true
-                }} 
+                    'brightness-0': isVisible
+                }, 'transition-all']} 
             />
         </div>
     )
