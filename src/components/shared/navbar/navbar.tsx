@@ -20,6 +20,13 @@ export default component$(() => {
         <ul>
          
           <li>
+            <Link href="/login">Login</Link>
+          </li>
+          <li>
+            <Link href="/dashboard">Admin Dashboard</Link>
+          </li>
+
+          <li>
             <Link href="/counter">CounterHook</Link>
           </li>
           <li>
